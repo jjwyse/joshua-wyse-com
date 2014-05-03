@@ -26,4 +26,4 @@ node_modules
 
 # Josh's stuff
 data/
-conf/
+conf/web.properties
