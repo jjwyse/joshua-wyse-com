@@ -1,4 +1,31 @@
 extends layout
 
-block header
-   h1= title
+block content
+   .jumbotron
+      .container
+         h1 Hi, I'm Josh.
+         p Welcome to the big show!
+         p
+            a(class='btn btn-primary btn-lg', role='button') Learn more &raquo;
+   .container
+      .row
+         .col-md-4
+            h2 Heading
+            p Ow now brown cow!
+            p
+               a(class='btn btn-default', href='#', role='button') View details &raquo;
+         .col-md-4
+            h2 Heading
+            p Ow now brown cow!
+            p
+               a(class='btn btn-default', href='#', role='button') View details &raquo;
+         .col-md-4
+            h2 Heading
+            p Ow now brown cow!
+            p
+               a(class='btn btn-default', href='#', role='button') View details &raquo;
+      hr
+      footer
+         p &copy;
+            a(href='http://about.me/jjwyse', target='_blank')  Joshua Wyse
+            |  2014
