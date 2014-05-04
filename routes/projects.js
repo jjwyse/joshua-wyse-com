@@ -24,12 +24,12 @@ exports.list = function (githubToken) {
          });
 
          res.on('end', function(){
-               console.log(responseString);
-               var json = JSON.parse(responseString);
-               response.send(json);
+            var json = JSON.parse(responseString);
+            response.send(json);
          });
       }).on('error', function(error){
          console.error(error);
+         response.send("Error");
       });
    };
 };
