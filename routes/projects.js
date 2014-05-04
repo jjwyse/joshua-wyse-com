@@ -1,25 +1,35 @@
 var https = require('https');
 
-exports.list = function(req, res) {
-   res.send('todo');
-}
+exports.list = function (githubToken) {
+   return function(request, response) {
 
-exports.apiList = function (req, res) {
+      console.log('token: ' + githubToken);
 
-   var options = {
-      host: 'api.github.com',
-      path: '/users/jjwyse/repos',
-      headers: {'User-Agent:': 'Personal Website'}
-   };
+      var options = {
+         host: 'api.github.com',
+         path: '/users/jjwyse/repos',
+         headers: {
+            'User-Agent:': 'joshua-wyse-com',
+            'Authorization': 'token ' + githubToken
+         }
+      };
 
-   https.get(options, function(res) {
-      console.log("status code:" + res.statusCode);
-      console.log("headers:" + res.headers);
+      https.get(options, function(res) {
+         console.log("status code:" + res.statusCode);
 
-      res.on('data', function(d){
-         process.stdout.write(d);
+         var responseString = ""
+
+         res.on('data', function(data){
+            responseString += data;
+         });
+
+         res.on('end', function(){
+               console.log(responseString);
+               var json = JSON.parse(responseString);
+               response.send(json);
+         });
+      }).on('error', function(error){
+         console.error(error);
       });
-   }).on('error', function(e){
-      console.error(e);
-   });
+   };
 };
