@@ -3,8 +3,6 @@ var https = require('https');
 exports.list = function (githubToken) {
    return function(request, response) {
 
-      console.log('token: ' + githubToken);
-
       var options = {
          host: 'api.github.com',
          path: '/users/jjwyse/repos',
