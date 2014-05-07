@@ -13,7 +13,7 @@ exports.list = function (githubToken) {
       };
 
       https.get(options, function(res) {
-         console.log("status code:" + res.statusCode);
+         console.log("Github response code: " + res.statusCode);
 
          var responseString = ""
 
