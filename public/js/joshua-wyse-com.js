@@ -8,9 +8,9 @@ $(document).ready(function(){
          url:'/api/projects',
          success:function(json){
             console.log("Retrieved projects:");
-            alert(json);
             $.each(json, function(key, project){
                console.log("Project name: " + project.name);
+               $('.content').append(project.name + '<br/>');
             });
             console.log("Finished loading projects");
          }
