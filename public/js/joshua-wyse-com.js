@@ -3,7 +3,7 @@ $(document).ready(function(){
    $('li').click(function(){
       $('.content').fadeOut('slow');
       $('li').removeClass('active');
-      $(this).toggleClass('active');
+      $(this).addClass('active');
    });
 
    // load all projects
@@ -44,6 +44,7 @@ $(document).ready(function(){
       });
    });
 
+   // converts meters to miles
    function metersToMiles(meters) {
       return Math.round((meters / 1609.344) * 100) / 100;
    }
