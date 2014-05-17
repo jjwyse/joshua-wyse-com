@@ -7,3 +7,12 @@ body {
 a {
    cursor: pointer;
 }
+
+img {
+   float: left;
+   padding: 25px;
+}
+
+.hide {
+   display: none;
+}

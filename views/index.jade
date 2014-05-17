@@ -12,7 +12,7 @@ html(lang='en')
 
       title=title
    body
-      div(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
+      div(class='navbar navbar-default navbar-fixed-top', role='navigation')
          .container
             .navbar-header
                button(type='button', class='navbar-toggle', data-toggle='collapse', data-target='.navbar-collapse')
@@ -23,42 +23,51 @@ html(lang='en')
             .navbar-collapse.collapse
                ul(class='nav navbar-nav navbar-right')
                   li(class='active')
-                     a(href='/') Home
+                     a(href='/') home
                   li
-                     a(id='projects', href='#projects') Projects
+                     a(id='projects', href='#projects') projects
                   li
-                     a(id='runs', href='#running') Running
+                     a(id='runs', href='#running') running
                   li
-                     a(id='contact', href='#contact') Contact
+                     a(id='contact', href='#contact') contact
       .content
          .jumbotron
             .container
-               h1 Hi, I'm Josh.
-               p Welcome to the big show!
+               img(src='/images/ski_goggles.jpg', class='img-rounded img-responsive')
+               h1 hi, i'm josh.
+               p i am a software engineer with a passion for developing web applications and learning new technologies. i
+                  | have experience with the design, architecture and implementation of various software solutions for a variety
+                  | of complex problems. i communicate well with others and work equally well either independently or on a team
+                  | of engineers.
                p
-                  a(class='btn btn-primary btn-lg', role='button') Resume &raquo;
-         .container
+                  a(id='resume', class='btn btn-primary btn-lg', role='button') resume &raquo;
+         .container.resume.hide
             .row
                .col-md-4
-                  h2 Heading
-                  p Ow now brown cow!
+                  h2 education
                   p
-                     a(class='btn btn-default', href='#', role='button') View details &raquo;
+                     a(class='btn btn-default', href='#miamiuniversity', role='button') miami university &raquo;
                .col-md-4
-                  h2 Heading
-                  p Ow now brown cow!
+                  h2 work
                   p
-                     a(class='btn btn-default', href='#', role='button') View details &raquo;
+                     a(class='btn btn-default', href='#cloudelements', role='button') cloud elements &raquo;
+                     br
+                     a(class='btn btn-default', href='#raytheon', role='button') raytheon &raquo;
+                     br
+                     a(class='btn btn-default', href='#cerner', role='button') cerner &raquo;
                .col-md-4
-                  h2 Heading
-                  p Ow now brown cow!
+                  h2 skills
                   p
-                     a(class='btn btn-default', href='#', role='button') View details &raquo;
+                     a(class='btn btn-default', href='#software', role='button') languages &raquo;
+                     br
+                     a(class='btn btn-default', href='#', role='button') frameworks &raquo;
+                     br
+                     a(class='btn btn-default', href='#', role='button') software &raquo;
             hr
       footer
          .container
             p &copy;
-               a(href='http://about.me/jjwyse', target='_blank')  Joshua Wyse
+               a(href='http://about.me/jjwyse', target='_blank')  joshua wyse
                |  2014
 
       script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
