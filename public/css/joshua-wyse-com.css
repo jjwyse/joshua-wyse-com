@@ -8,6 +8,10 @@ a {
    cursor: pointer;
 }
 
+a:hover {
+   color: orange;
+}
+
 img {
    float: left;
    padding: 25px;
@@ -15,4 +19,9 @@ img {
 
 .hide {
    display: none;
+}
+
+#map_canvas {
+   width: 500px;
+   height: 400px;
 }
