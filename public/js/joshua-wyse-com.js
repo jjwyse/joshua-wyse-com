@@ -6,11 +6,6 @@ $(document).ready(function(){
       $(this).addClass('active');
    });
 
-   // toggle showing the resume section
-   $('a#resume').click(function(){
-      console.log('Toggling resume');
-      $('.container.resume').toggleClass('hide');
-   });
 
    // load all projects
    $('a#projects').click(function(){
