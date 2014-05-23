@@ -35,6 +35,7 @@ app.get('/', routes.index);
 app.get('/api/projects', projects.list(config.github))
 app.get('/api/runs', runs.list(config.strava))
 app.get('/api/users/contact', users.contact(db))
+app.get('/api/users/resume', users.resume(db))
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));

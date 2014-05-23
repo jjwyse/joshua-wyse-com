@@ -26,6 +26,24 @@ $(document).ready(function(){
       });
    });
 
+   // show resume
+   $('a#resume').click(function(){
+      console.log('Loading resume...');
+      $.ajax({
+         type:'GET',
+         url:'/api/users/resume',
+         success:function(json){
+            console.log("Retrieved resume:");
+            $('.content').text("");
+            $.each(json, function(key, resume){
+               $('.content').append(resume.section + '<br/>');
+            });
+            console.log("Finished loading resume");
+            $('.content').fadeIn('fast');
+         }
+      });
+   });
+
    // load all runs
    $('a#runs').click(function(){
       console.log('Loading runs...');
