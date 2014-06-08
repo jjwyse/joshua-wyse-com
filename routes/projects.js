@@ -5,7 +5,7 @@ exports.list = function (githubToken) {
 
       var options = {
          host: 'api.github.com',
-         path: '/users/jjwyse/repos',
+         path: '/users/jjwyse/repos?sort=updated',
          headers: {
             'User-Agent:': 'joshua-wyse-com',
             'Authorization': 'token ' + githubToken

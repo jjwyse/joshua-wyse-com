@@ -2,7 +2,6 @@ var express = require('express');
 
 var routes = require('./routes');
 var projects = require('./routes/projects');
-var runs = require('./routes/runs');
 var users = require('./routes/users');
 
 var http = require('http');
@@ -33,7 +32,6 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/api/projects', projects.list(config.github))
-app.get('/api/runs', runs.list(config.strava))
 app.get('/api/users/contact', users.contact(db))
 app.get('/api/users/resume', users.resume(db))
 
