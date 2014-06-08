@@ -1,11 +1,11 @@
 exports.contact = function(db) {
    return function (request, response) {
       var contactInformation = db.get('contact');
-      contactInformation.find({}, {}, function (e, contacts) {
+      contactInformation.find({}, {}, function (e, contact) {
          if (contact == null) {
-            res.render('500', {"title": "Oh shit...", "reason": "no contact information found in the database"});
+            respone.render('500', {"title": "Oops...", "reason": "no contact information found in the database"});
          }
-         res.send(contacts);
+         response.send(contact);
       });
    }
 };
@@ -15,9 +15,9 @@ exports.resume = function(db) {
       var resumeInformation = db.get('resume');
       resumeInformation.find({}, {}, function (e, resume) {
          if (resume == null) {
-            res.render('500', {"title": "Oh shit...", "reason": "no resume information found in the database"});
+            response.render('500', {"title": "Oops...", "reason": "no resume information found in the database"});
          }
-         res.send(resume);
+         response.send(resume);
       });
    }
 };
