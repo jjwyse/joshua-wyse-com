@@ -74,7 +74,7 @@ $(document).ready(function(){
             console.log("Retrieved contact information:");
             $('.content').text("");
             $.each(json, function(key, contact){
-               $('.content').append('<a target="_blank" href="' + contact.link + '"><img src="/images/' + contact.source + '.png"></a>');
+               $('.content').append('<a class="img-responsive contact-info" target="_blank" href="' + contact.link + '"><img src="/images/' + contact.source + '.png"></a>');
             });
             console.log("Finished loading contact information");
             $('.content').fadeIn('fast');
