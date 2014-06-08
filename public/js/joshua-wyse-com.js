@@ -18,7 +18,7 @@ $(document).ready(function(){
             $('.content').text("");
             $.each(json, function(key, project){
                console.log("Project name: " + project.name);
-               $('.content').append(project.name + '<br/>');
+               $('.content').append('<a target="_blank" href="' + project.html_url + '">' + project.name + '</a><br/>');
             });
             console.log("Finished loading projects");
             $('.content').fadeIn('fast');
