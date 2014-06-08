@@ -21,8 +21,6 @@ a:hover {
    display: none;
 }
 
-
-#map_canvas {
-   width: 500px;
-   height: 400px;
+footer {
+   padding: 30px;
 }
