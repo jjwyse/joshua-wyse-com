@@ -3,7 +3,7 @@ exports.contact = function(db) {
       var contactInformation = db.get('contact');
       contactInformation.find({}, {}, function (e, contact) {
          if (contact == null) {
-            respone.render('500', {"title": "Oops...", "reason": "no contact information found in the database"});
+            response.render('500', {"title": "Oops...", "reason": "no contact information found in the database"});
          }
          response.send(contact);
       });
