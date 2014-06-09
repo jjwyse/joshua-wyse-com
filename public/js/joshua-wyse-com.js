@@ -6,7 +6,6 @@ $(document).ready(function(){
       $(this).addClass('active');
    });
 
-
    // load all projects
    $('a#projects').click(function(){
       console.log('Loading projects...');
@@ -18,7 +17,7 @@ $(document).ready(function(){
             $('.content').text("");
             $.each(json, function(key, project){
                console.log("Project name: " + project.name);
-               $('.content').append(createProject(project.html_url, project.name, project.description));
+               $('.content').append(createProject(project.html_url, project.name, project.description, project.language));
             });
             console.log("Finished loading projects");
             $('.content').fadeIn('fast');
@@ -62,17 +61,17 @@ $(document).ready(function(){
       });
    });
 
-   function createProject(html_url, name, description) {
+   function createProject(html_url, name, description, language) {
       return '<div class="panel panel-default">' +
          '<div class="panel-heading">' +
             '<a target="_blank" href="' + html_url + '">' +
                '<img src="/images/github_small.png">' +
             '</a>' +
-            name +
+            '<b>' + name + '</b>' + ' - <small><i>' + description + '</i></small>' +
          '</div>' +
-         '<div class="panel-body">' +
-            description +
-         '</div>' +
+         '<ul class="list-group">' +
+            '<li class="list-group-item"><b>language: </b>' + language + '</li>' +
+         '</ul>' +
       '</div>';
    }
 });
