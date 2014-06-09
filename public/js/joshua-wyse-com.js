@@ -18,7 +18,7 @@ $(document).ready(function(){
             $('.content').text("");
             $.each(json, function(key, project){
                console.log("Project name: " + project.name);
-               $('.content').append('<a target="_blank" href="' + project.html_url + '">' + project.name + '</a><br/>');
+               $('.content').append(createProject(project.html_url, project.name));
             });
             console.log("Finished loading projects");
             $('.content').fadeIn('fast');
@@ -65,5 +65,18 @@ $(document).ready(function(){
    // converts meters to miles
    function metersToMiles(meters) {
       return Math.round((meters / 1609.344) * 100) / 100;
+   }
+
+   function createProject(html_url, name) {
+      return '<div class="panel panel-default">' +
+         '<div class="panel-heading">' +
+            '<a target="_blank" href="' + html_url + '">' +
+               '<img src="/images/github_small.png">' +
+            '</a>' +
+            name
+         '</div>' +
+         '<div class="panel-body">' +
+         '</div>'
+      '</div>';
    }
 });

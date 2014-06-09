@@ -20,3 +20,7 @@ a:hover {
 .hide {
    display: none;
 }
+
+footer {
+   padding: 20px;
+}
