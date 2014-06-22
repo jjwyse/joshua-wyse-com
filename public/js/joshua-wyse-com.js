@@ -1,7 +1,6 @@
 $(document).ready(function(){
 
    $('li').click(function(){
-      $('.content').fadeOut('slow');
       $('li').removeClass('active');
       $(this).addClass('active');
    });
