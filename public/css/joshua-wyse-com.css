@@ -21,6 +21,11 @@ a:hover {
    display: none;
 }
 
+.list-inline {
+   text-align: center;
+   padding: 20px;
+}
+
 footer {
    padding: 20px;
 }
