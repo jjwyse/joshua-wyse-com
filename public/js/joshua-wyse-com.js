@@ -52,13 +52,14 @@ $(document).ready(function(){
          success:function(json){
             console.log("Retrieved contact information:");
             $('.content').text("");
-            $('.content').append('<ul class="list-inline">');
+            var content = '<ul class="list-inline">';
             $.each(json, function(key, contact){
-               $('.content').append('<li><a class="img-responsive contact-info" target="_blank" href="' + contact.link + '">' +
+               content += '<li><a class="img-responsive contact-info" target="_blank" href="' + contact.link + '">' +
                   '<img src="/images/' + contact.source + '.png">' +
-               '</a></li>');
+               '</a></li>';
             });
-            $('.content').append('</ul>');
+            content += '</ul>';
+            $('.content').append(content);
             console.log("Finished loading contact information");
             $('.content').fadeIn('fast');
          }
