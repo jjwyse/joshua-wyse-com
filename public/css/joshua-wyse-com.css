@@ -30,6 +30,10 @@ a:hover {
    border: 0px;
 }
 
+.panel-default > .panel-heading {
+   background-color: #B9B9B9;
+}
+
 footer {
    padding: 20px;
 }

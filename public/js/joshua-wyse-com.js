@@ -30,15 +30,15 @@ $(document).ready(function(){
       $('.content').text("");
 
 
-      $('.content').append('<div class="well">' +
+      $('.content').append('<div class="well well-sm">' +
          '<h3>skills</h3>' +
          '<p></p>' +
       '</div>');
-      $('.content').append('<div class="well">' +
+      $('.content').append('<div class="well well-sm">' +
          '<h3>experience</h3>' +
          '<p></p>' +
       '</div>');
-      $('.content').append('<div class="well">' +
+      $('.content').append('<div class="well well-sm">' +
          '<h3>education</h3>' +
          '<p></p>' +
       '</div>');
