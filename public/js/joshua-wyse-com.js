@@ -27,19 +27,35 @@ $(document).ready(function(){
    // show resume
    $('a#resume').click(function(){
       console.log('Loading resume...');
-      $.ajax({
-         type:'GET',
-         url:'/api/users/resume',
-         success:function(json){
-            console.log("Retrieved resume:");
-            $('.content').text("");
-            $.each(json, function(key, resume){
-               $('.content').append(resume.section + '<br/>');
-            });
-            console.log("Finished loading resume");
-            $('.content').fadeIn('fast');
-         }
-      });
+      $('.content').text("");
+
+
+      $('.content').append('<div class="well">' +
+         '<h3>skills</h3>' +
+         '<p></p>' +
+      '</div>');
+      $('.content').append('<div class="well">' +
+         '<h3>experience</h3>' +
+         '<p></p>' +
+      '</div>');
+      $('.content').append('<div class="well">' +
+         '<h3>education</h3>' +
+         '<p></p>' +
+      '</div>');
+
+      $('.content').fadeIn('fast');
+      // $.ajax({
+      //    type:'GET',
+      //    url:'/api/users/resume',
+      //    success:function(json){
+      //       console.log("Retrieved resume:");
+      //       $.each(json, function(key, resume){
+      //          $('.content').append(resume.section + '<br/>');
+      //       });
+      //       console.log("Finished loading resume");
+      //       $('.content').fadeIn('fast');
+      //    }
+      // });
    });
 
    // load all contact information

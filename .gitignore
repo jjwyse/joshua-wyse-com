@@ -27,3 +27,4 @@ node_modules
 # Josh's stuff
 data/
 config.js
+mongo_schema.json

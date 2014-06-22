@@ -26,6 +26,10 @@ a:hover {
    padding: 20px;
 }
 
+.well {
+   border: 0px;
+}
+
 footer {
    padding: 20px;
 }
