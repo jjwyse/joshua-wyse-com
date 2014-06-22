@@ -17,7 +17,7 @@ $(document).ready(function(){
             $('.content').text("");
             $.each(json, function(key, project){
                console.log("Project name: " + project.name);
-               $('.content').append(createProject(project.html_url, project.name, project.description, project.language));
+               $('.content').append(createProject(project.html_url, project.name, project.description, project.language, project.homepage));
             });
             console.log("Finished loading projects");
             $('.content').fadeIn('fast');
@@ -52,16 +52,20 @@ $(document).ready(function(){
          success:function(json){
             console.log("Retrieved contact information:");
             $('.content').text("");
+            $('.content').append('<ul class="list-inline">');
             $.each(json, function(key, contact){
-               $('.content').append('<a class="img-responsive contact-info" target="_blank" href="' + contact.link + '"><img src="/images/' + contact.source + '.png"></a>');
+               $('.content').append('<li><a class="img-responsive contact-info" target="_blank" href="' + contact.link + '">' +
+                  '<img src="/images/' + contact.source + '.png">' +
+               '</a></li>');
             });
+            $('.content').append('</ul>');
             console.log("Finished loading contact information");
             $('.content').fadeIn('fast');
          }
       });
    });
 
-   function createProject(html_url, name, description, language) {
+   function createProject(html_url, name, description, language, homepage) {
       return '<div class="panel panel-default">' +
          '<div class="panel-heading">' +
             '<a target="_blank" href="' + html_url + '">' +
@@ -70,6 +74,7 @@ $(document).ready(function(){
             '<b>' + name + '</b>' + ' - <small><i>' + description + '</i></small>' +
          '</div>' +
          '<ul class="list-group">' +
+            '<li class="list-group-item"><b>homepage: </b><a target="_blank" href="http://' + homepage + '">' + homepage + '</a></li>' +
             '<li class="list-group-item"><b>language: </b>' + language + '</li>' +
          '</ul>' +
       '</div>';
