@@ -1,14 +1,11 @@
-var express = require('express');
-
+var http = require('http'),
+   express = require('express'),
+   config = require('./config'),
+   monk = require('monk');
+   
+var handlebars = require('express-handlebars').create({ defaultLayout: 'main'});
 var routes = require('./routes');
-var projects = require('./routes/projects');
-var users = require('./routes/users');
 
-var http = require('http');
-var path = require('path');
-
-var monk = require('monk');
-var config = require('./config');
 var db = monk(config.mongodbendpoint, {
    username: config.mongodbusername,
    password: config.mongodbpassword
@@ -16,17 +13,16 @@ var db = monk(config.mongodbendpoint, {
 
 var app = express();
 
-// all environments
 app.set('port', process.env.PORT || 2997);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('handlebars', handlebars.engine);
+app.set('view engine', 'handlebars');
+app.use(express.static(__dirname + '/public'));
 app.use(express.favicon("/images/favicon.ico"));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -34,9 +30,6 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/api/projects', projects.list(config.github))
-app.get('/api/users/contact', users.contact(db))
-app.get('/api/users/resume', users.resume(db))
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));

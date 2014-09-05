@@ -1,4 +1,4 @@
 joshua-wyse-com
 ===============
 
-Personal website - joshuawyse.com
+joshuawyse.com
