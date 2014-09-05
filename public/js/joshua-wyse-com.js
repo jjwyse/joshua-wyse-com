@@ -31,7 +31,7 @@ $(document).ready(function(){
 
 
       $('.content').append('<div class="well well-sm">' +
-         '<h3>skills</h3>' +
+            '<h3>skills</h3>' +
          '<p></p>' +
       '</div>');
       $('.content').append('<div class="well well-sm">' +
