@@ -17,7 +17,7 @@ app.set('port', process.env.PORT || 2997);
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.use(express.static(__dirname + '/public'));
-app.use(express.favicon("/images/favicon.ico"));
+app.use(express.favicon("./public/images/favicon.ico"));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
