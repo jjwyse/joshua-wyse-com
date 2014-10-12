@@ -30,7 +30,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.post('/api/messages', routes.sendMessage(config.cetoken, config.ceusersecret));
+app.post('/api/messages', routes.sendMessage(config.cetoken, config.ceusersecret, config.ceorgsecret, config.email));
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));

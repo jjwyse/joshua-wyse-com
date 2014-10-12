@@ -17,15 +17,16 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            jsonData = {
+                subject: 'Website message from: ' + name + ' - ' + phone,
+                from: email,
+                message: message
+            };
             $.ajax({
                 url: "/api/messages",
                 type: "POST",
-                data: {
-                    name: name,
-                    phone: phone,
-                    email: email,
-                    message: message
-                },
+                data: JSON.stringify(jsonData),
+                contentType: "application/json",
                 cache: false,
                 success: function() {
                     // Success message
