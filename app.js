@@ -2,7 +2,7 @@ var http = require('http'),
    express = require('express'),
    config = require('./config'),
    monk = require('monk');
-   
+
 var handlebars = require('express-handlebars').create({ defaultLayout: 'main'});
 var routes = require('./routes');
 
@@ -30,6 +30,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.post('/api/messages', routes.sendMessage);
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));

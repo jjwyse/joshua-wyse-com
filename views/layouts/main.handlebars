@@ -58,7 +58,7 @@
                         <a href="#projects">Projects</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
@@ -120,21 +120,69 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="success" id="about">
+    <!-- Skills Section -->
+    <section class="success" id="skills">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>About</h2>
+                    <h2>Skills</h2>
                     <hr class="star-light">
                 </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p>Software engineer with a passion for developing web applications and solving problems using technology.
+                   I have experience designing, architecting and implementing software solutions for a variety of complex problems.
+                   I am a great communicator who works equally well in teams, individually, and leading a team of other engineers.
+                </p>
+                </div>
             </div>
+            <hr/>
             <div class="row">
-                <div class="col-lg-6 col-lg-offset-3">
+                <div class="col-lg-3 col-lg-offset-2">
+                    <h4>Languages</h4>
                     <p>
-                      Software engineer with a passion for developing web applications and solving problems using technology.
-                      I have experience designing, architecting and implementing software solutions for a variety of complex problems.
-                      I am a great communicator who works equally well in teams, individually, and leading a team of other engineers.
+                      <ul>
+                      <li>CSS</li>
+                      <li>Groovy</li>
+                      <li>HTML5</li>
+                      <li>Java</li>
+                      <li>Javascript</li>
+                      <li>Processing</li>
+                      <li>Python</li>
+                      <li>Shell Scripting</li>
+                      <li>SQL</li>
+                      </ul
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Frameworks</h4>
+                    <p>
+                      <ul>
+                      <li>Bootstrap</li>
+                      <li>Camel</li>
+                      <li>Grails</li>
+                      <li>jQuery</li>
+                      <li>nodeJS</li>
+                      <li>Spring</li>
+                      <li>Swagger</li>
+                      </ul
+                    </p>
+                </div>
+                <div class="col-lg-3">
+                    <h4>Software</h4>
+                    <p>
+                      <ul>
+                      <li>Ant</li>
+                      <li>ActiveMQ</li>
+                      <li>Git</li>
+                      <li>Jenkins</li>
+                      <li>LDAP</li>
+                      <li>*nix</li>
+                      <li>mongoDB</li>
+                      <li>mySQL</li>
+                      <li>PostgreSQL</li>
+                      <li>Subversion</li>
+                      <li>Tomcat</li>
+                      </ul
                     </p>
                 </div>
             </div>
@@ -152,8 +200,6 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -179,7 +225,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <textarea rows="2" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -187,7 +233,7 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button id="sendMessage" type="submit" class="btn btn-success btn-lg">Send</button>
                             </div>
                         </div>
                     </form>
@@ -227,7 +273,7 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>About</h3>
-                        <p>Christian - Husband</br>{Mountain | Trail} Runner - IPA Drinker</p>
+                        <p>Christian - Husband<br/>{Mountain | Trail} Runner - IPA Drinker</p>
                     </div>
                 </div>
             </div>
@@ -372,11 +418,12 @@
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
 
+    <!-- All of my custom JavaScript-->
+    <script src="js/joshua-wyse-com.js"></script>
 </body>
 
 </html>

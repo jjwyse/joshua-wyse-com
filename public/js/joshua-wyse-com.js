@@ -1,98 +1,70 @@
-$(document).ready(function(){
+$(function() {
 
-   $('li').click(function(){
-      $('li').removeClass('active');
-      $(this).addClass('active');
-   });
+    $("input,textarea").jqBootstrapValidation({
+        preventSubmit: true,
+        submitError: function($form, event, errors) {
+            // additional error messages or events
+        },
+        submitSuccess: function($form, event) {
+            event.preventDefault(); // prevent default submit behaviour
+            // get values from FORM
+            var name = $("input#name").val();
+            var email = $("input#email").val();
+            var phone = $("input#phone").val();
+            var message = $("textarea#message").val();
+            var firstName = name; // For Success/Failure Message
+            // Check for white space in name for Success/Fail message
+            if (firstName.indexOf(' ') >= 0) {
+                firstName = name.split(' ').slice(0, -1).join(' ');
+            }
+            $.ajax({
+                url: "/api/messages",
+                type: "POST",
+                data: {
+                    name: name,
+                    phone: phone,
+                    email: email,
+                    message: message
+                },
+                cache: false,
+                success: function() {
+                    // Success message
+                    $('#success').html("<div class='alert alert-success'>");
+                    $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                        .append("</button>");
+                    $('#success > .alert-success')
+                        .append("<strong>Your message has been sent. </strong>");
+                    $('#success > .alert-success')
+                        .append('</div>');
 
-   // load all projects
-   $('a#projects').click(function(){
-      console.log('Loading projects...');
-      $.ajax({
-         type:'GET',
-         url:'/api/projects',
-         success:function(json){
-            console.log("Retrieved projects:");
-            $('.content').text("");
-            $.each(json, function(key, project){
-               console.log("Project name: " + project.name);
-               $('.content').append(createProject(project.html_url, project.name, project.description, project.language, project.homepage));
-            });
-            console.log("Finished loading projects");
-            $('.content').fadeIn('fast');
-         }
-      });
-   });
+                    //clear all fields
+                    $('#contactForm').trigger("reset");
+                },
+                error: function() {
+                    // Fail message
+                    $('#success').html("<div class='alert alert-danger'>");
+                    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                        .append("</button>");
+                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#success > .alert-danger').append('</div>');
+                    //clear all fields
+                    $('#contactForm').trigger("reset");
+                },
+            })
+        },
+        filter: function() {
+            return $(this).is(":visible");
+        },
+    });
 
-   // show resume
-   $('a#resume').click(function(){
-      console.log('Loading resume...');
-      $('.content').text("");
+    $("a[data-toggle=\"tab\"]").click(function(e) {
+        e.preventDefault();
+        $(this).tab("show");
+    });
+});
 
 
-      $('.content').append('<div class="well well-sm">' +
-            '<h3>skills</h3>' +
-         '<p></p>' +
-      '</div>');
-      $('.content').append('<div class="well well-sm">' +
-         '<h3>experience</h3>' +
-         '<p></p>' +
-      '</div>');
-      $('.content').append('<div class="well well-sm">' +
-         '<h3>education</h3>' +
-         '<p></p>' +
-      '</div>');
-
-      $('.content').fadeIn('fast');
-      // $.ajax({
-      //    type:'GET',
-      //    url:'/api/users/resume',
-      //    success:function(json){
-      //       console.log("Retrieved resume:");
-      //       $.each(json, function(key, resume){
-      //          $('.content').append(resume.section + '<br/>');
-      //       });
-      //       console.log("Finished loading resume");
-      //       $('.content').fadeIn('fast');
-      //    }
-      // });
-   });
-
-   // load all contact information
-   $('a#contact').click(function(){
-      console.log('Loading contact information...');
-      $.ajax({
-         type:'GET',
-         url:'/api/users/contact',
-         success:function(json){
-            console.log("Retrieved contact information:");
-            $('.content').text("");
-            var content = '<ul class="list-inline">';
-            $.each(json, function(key, contact){
-               content += '<li><a class="img-responsive contact-info" target="_blank" href="' + contact.link + '">' +
-                  '<img src="/images/' + contact.source + '.png">' +
-               '</a></li>';
-            });
-            content += '</ul>';
-            $('.content').append(content);
-            console.log("Finished loading contact information");
-            $('.content').fadeIn('fast');
-         }
-      });
-   });
-
-   function createProject(html_url, name, description, language, homepage) {
-      return '<div class="panel panel-default">' +
-         '<div class="panel-heading">' +
-            '<a target="_blank" href="' + html_url + '">' +
-               '<img src="/images/github_small.png">' +
-            '</a>' +
-            '<b>' + name + '</b>' + ' - <small><i>' + description + '</i></small>' +
-         '</div>' +
-         '<ul class="list-group">' +
-            '<li class="list-group-item"><b>homepage: </b><a target="_blank" href="http://' + homepage + '">' + homepage + '</a></li>' +
-            '<li class="list-group-item"><b>language: </b>' + language + '</li>' +
-         '</ul>' +
-      '</div>';
-   }
+/*When clicking on Full hide fail/success boxes */
+$('#name').focus(function() {
+    $('#success').html('');
 });
