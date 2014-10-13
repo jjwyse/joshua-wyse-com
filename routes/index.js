@@ -15,7 +15,6 @@ exports.sendMessage = function(token, userSecret, orgSecret, toEmail, isEmailOn)
     message['to'] = toEmail;
     console.log("Attempting to send message: " + JSON.stringify(message));
 
-    console.log(authHeader);
     unirest.post('https://api.cloud-elements.com/elements/api-v2/hubs/messaging/messages')
       .headers({'Authorization': authHeader})
       .headers({'Content-Type': 'application/json'})
