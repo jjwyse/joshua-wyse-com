@@ -3,7 +3,7 @@ var http = require('http'),
    config = require('./config'),
    monk = require('monk');
 
-var handlebars = require('express-handlebars').create({ defaultLayout: 'main'});
+var handlebars = require('express-handlebars').create();
 var routes = require('./routes');
 
 var db = monk(config.mongodbendpoint, {
